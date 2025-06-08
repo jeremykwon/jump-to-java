@@ -18,6 +18,24 @@ class Calculator {
     }
 }
 
+class Dog extends Animal {
+    void sleep() {
+        System.out.println(this.name+" 코코넨네 하는중");
+    }
+}
+
+class HouseDog extends Dog {
+    // 오버라이딩
+    void sleep() {
+        System.out.println(this.name + " 코코넨네 하는중.. in house");
+    }
+
+    // 오버로딩
+    void sleep(int hour) {
+        System.out.println(this.name + " 코코넨네 하는중.. in house for " + hour + " 시간 동안..");
+    }
+}
+
 public class App {
     public String getGreeting() {
         return "Hello World! test";
@@ -118,5 +136,23 @@ public class App {
         System.out.println("계산기 결과: " + calculator.result);  // 4 출력
 
         System.out.println("계산기 결과: " + calculator2.result);  // 0 출력
+
+        // 클래스
+        Animal animal = new Animal();
+        animal.setName("뽀삐");
+        System.out.println("Animal name: " + animal.name);  // null 출력
+
+        // 상속
+        Dog dog = new Dog();
+        dog.setName("강아지는 뽀삐");
+        dog.sleep(); // 코코넨네 하는중 출력
+
+        // 오버라이딩
+        HouseDog houseDog = new HouseDog();
+        houseDog.setName("집안 강아지 뽀삐");
+        houseDog.sleep();  // "집안 강아지 뽀삐 코코넨네 하는중.. in house" 출력
+
+        // 오버로딩
+        houseDog.sleep(11);
     }
 }
